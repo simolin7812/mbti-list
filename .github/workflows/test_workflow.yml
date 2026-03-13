@@ -56,3 +56,21 @@ jobs:
         uses: actions/upload-pages-artifact@v3    # GitHub Pages 결과물 업로드 (Action 사용)
         with:
           path: build    # build 디렉토리 결과물로 업로드
+
+  deploy:
+    needs: build    # "deploy 작업은 build 작업이 완료된 이후 수행한다."
+                    # build 실행 중 오류 발생 -> deploy 실행 X
+    runs-on: ubuntu-latest
+
+    # Github pages 배포 권한 받기
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github pages
+
+    steps:
+    - name: Deploy Github pages
+      uses: actions/deploy-pages@v4
+      
