@@ -39,8 +39,14 @@ jobs:
       # Build Process (빌드 작업)
       - name: Build Process
         run: |
-          echo "Building now... "    #빌드 작업 안내 문구 화면 출력
+          echo "Building now... "    # 빌드 작업 안내 문구 화면 출력
           mkdir build
           cp mbti.json build/
+            # (빌드 정상 작동 X -> 테스트 작업에서 원하는 값이 나오지 않음)
 
-      
+      # Test Process (테스트 작업)
+      - name: Test Process
+        run: |
+          echo "Testing now..."    # 테스트 작업 안내 문구 화면 출력
+          test -f build/mbti.json
+          
