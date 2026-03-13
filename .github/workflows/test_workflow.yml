@@ -49,4 +49,10 @@ jobs:
         run: |
           echo "Testing now..."    # 테스트 작업 안내 문구 화면 출력
           test -f build/mbti.json
-          
+
+      # Github Pages :: Github 웹사이트 배포 서비스 제공
+      # 결과물 Github pages 업로드
+      - name: Upload Github pages
+        uses: actions/upload-pages-artifact@v3    # GitHub Pages 결과물 업로드 (Action 사용)
+        with:
+          path: build    # build 디렉토리 결과물로 업로드
