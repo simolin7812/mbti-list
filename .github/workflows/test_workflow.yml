@@ -35,3 +35,12 @@ jobs:
           cat mbti.json
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      # Build Process (빌드 작업)
+      - name: Build Process
+        run: |
+          echo "Building now... "    #빌드 작업 안내 문구 화면 출력
+          mkdir build
+          cp mbti.json build/
+
+      
